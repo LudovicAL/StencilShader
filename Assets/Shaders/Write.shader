@@ -1,4 +1,4 @@
-Shader "Test"
+Shader "WriteShader"
 {
 Properties
 {
