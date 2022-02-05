@@ -10,6 +10,7 @@ Properties
 [HideInInspector][NoScaleOffset]unity_ShadowMasks("unity_ShadowMasks", 2DArray) = "" {}
 [IntRange] _StencilRef("Stencil Reference Value", Range(0,255)) = 0
 }
+
 SubShader
 {
 Tags
@@ -17,9 +18,9 @@ Tags
 "RenderPipeline" = "UniversalPipeline"
 "RenderType" = "Opaque"
 "UniversalMaterialType" = "Lit"
-"Queue" = "Geometry"
 "ShaderGraphShader" = "true"
 "ShaderGraphTargetId" = "UniversalLitSubTarget"
+"Queue" = "Geometry+1001"
 }
 Stencil{
 Ref[_StencilRef]
@@ -2792,6 +2793,13 @@ Tags
 "Queue" = "Geometry"
 "ShaderGraphShader" = "true"
 "ShaderGraphTargetId" = "UniversalLitSubTarget"
+"Queue" = "Geometry+1001"
+}
+Stencil{
+Ref[_StencilRef]
+Comp Equal
+Pass Keep
+Fail Keep
 }
 Pass
 {
